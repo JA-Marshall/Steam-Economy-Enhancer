@@ -1,5 +1,10 @@
-# <img src="assets/icon.svg" width="32" align="center"> Steam Economy Enhancer
 
+
+### FORK OF ORIGINAL THAT REMOVES THE SELL ALL ITEMS BUTTONS
+all other functionality is the same but removes the ability to start liqudating all items with a misclick...
+
+
+# <img src="assets/icon.svg" width="32" align="center"> Steam Economy Enhancer
 A free userscript to enhance your Steam Inventory, Steam Market and Steam Tradeoffers.
 
 It adds the following features to the Steam Market:
