@@ -1362,52 +1362,9 @@
             onQueueDrain();
         };
 
-        function sellAllItems() {
-            loadAllInventories().then(
-                () => {
-                    const items = getInventoryItems();
-                    const filteredItems = [];
+        
 
-                    items.forEach((item) => {
-                        if (!item.marketable) {
-                            return;
-                        }
-
-                        filteredItems.push(item);
-                    });
-
-                    sellItems(filteredItems);
-                },
-                () => {
-                    logDOM('Could not retrieve the inventory...');
-                }
-            );
-        }
-
-        function sellAllDuplicateItems() {
-            loadAllInventories().then(
-                () => {
-                    const items = getInventoryItems();
-                    const marketableItems = [];
-                    let filteredItems = [];
-
-                    items.forEach((item) => {
-                        if (!item.marketable) {
-                            return;
-                        }
-
-                        marketableItems.push(item);
-                    });
-
-                    filteredItems = marketableItems.filter((e, i) => marketableItems.map((m) => m.classid).indexOf(e.classid) !== i);
-
-                    sellItems(filteredItems);
-                },
-                () => {
-                    logDOM('Could not retrieve the inventory...');
-                }
-            );
-        }
+        
 
         function gemAllDuplicateItems() {
             loadAllInventories().then(
@@ -2304,8 +2261,7 @@
             const TF2 = appId == 440;
 
             let buttonsHtml = `
-                <a class="btn_green_white_innerfade btn_medium_wide sell_all"><span>Sell All Items</span></a>
-                <a class="btn_green_white_innerfade btn_medium_wide sell_all_duplicates"><span>Sell All Duplicate Items</span></a>
+               
                 <a class="btn_green_white_innerfade btn_medium_wide sell_selected" style="display:none"><span>Sell Selected Items</span></a>
                 <a class="btn_green_white_innerfade btn_medium_wide sell_manual" style="display:none"><span>Sell Manually</span></a>
             `;
@@ -2351,13 +2307,7 @@
                 $('#inventory_applogo').after(sellButtons);
 
                 // Add bindings to sell buttons.
-                $('.sell_all').on(
-                    'click',
-                    '*',
-                    () => {
-                        sellAllItems();
-                    }
-                );
+               
                 $('.sell_selected').on('click', '*', sellSelectedItems);
                 $('.sell_all_duplicates').on('click', '*', sellAllDuplicateItems);
                 $('.gem_all_duplicates').on('click', '*', gemAllDuplicateItems);
